@@ -7,5 +7,4 @@ It includes user & admin roles, protected routes, and full authentication flow.
 - backend/ → Node.js + Express + MongoDB
 - frontend/ → React + Vite
 
-## Getting Started
-See backend/README.md and frontend/README.md for detailed setup instructions.
+ 
