@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { fetchUserProfile } from '../api/userApi'
 import { setLoading, setError } from '../features/user/userSlice'
 import LogoutButton from '../components/LogoutButton'
+import "../styles/Dashboard.css"
 
 function Dashboard() {
   const dispatch = useDispatch()
@@ -26,12 +27,17 @@ function Dashboard() {
   if (loading) return <p>Loading profile...</p>
   if (error) return <p className="error">Error: {error}</p>
 
+  // Dummy data for frontend testing if user is null
+  const displayUser = user || { name: "Sugam Singh", email: "sugam@example.com" };
+
   return (
-        <div className="dashboard-container">
-      <h2>Welcome, {user?.name || "User"}!</h2>
-      <p>Email: {user?.email}</p>
-      <LogoutButton /> {/* ✅ Logout button yahan add karo */}
-    </div>
+      <div className="dashboard-wrapper">
+      <div className="dashboard-card">
+        <h2>Welcome, {displayUser.name}!</h2>
+        <p>Email: {displayUser.email}</p>
+        <LogoutButton />
+      </div>
+    </div>   
   )
 }
 

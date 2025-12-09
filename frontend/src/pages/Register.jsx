@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import { useDispatch , useSelector } from 'react-redux'
  import { registerUser } from '../features/auth/authSlice'
  import { useNavigate } from 'react-router-dom'
+ import '../styles/Register.css'
 
 function Register() {
 
@@ -32,12 +33,12 @@ function Register() {
   };
 
   return (
-      <div className="register-container">
-      <h2>Register</h2>
+      <div className="auth-wrapper">
+      
 
-      {error && <p style={{ color: "red" }}>{error}</p>}
+     {error && <p style={{ color: "red" }}>{error}</p>}
 
-      <form onSubmit={handleSubmit}>
+      <form className='auth-form' onSubmit={handleSubmit}>
         <input
           type="text"
           name="name"
@@ -65,7 +66,7 @@ function Register() {
           required
         />
 
-        <button type="submit" disabled={loading}>
+        <button type="submit" className='btn-primary' disabled={loading}>
           {loading ? "Creating account..." : "Register"}
         </button>
       </form>

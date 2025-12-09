@@ -2,6 +2,7 @@ import React ,  { useState } from "react"
 import {useDispatch, useSelector} from 'react-redux'
 import { loginUser } from "../api/authApi"
 import { useNavigate } from 'react-router-dom'
+import '../styles/Login.css'
  
 
 
@@ -35,12 +36,12 @@ function Login() {
 
 
   return (
-    <div className="login-container">
-      <h2>Login</h2>
+       <div className="auth-wrapper">
+      <form className="auth-form" onSubmit={handleSubmit}>
+        <h2>Login</h2>
 
-      {error && <p style={{ color: "red" }}>{error}</p>}
+        {error && <p className="error-msg">{error}</p>}
 
-      <form onSubmit={handleSubmit}>
         <input
           type="email"
           name="email"
@@ -59,7 +60,7 @@ function Login() {
           required
         />
 
-        <button type="submit" disabled={loading}>
+        <button type="submit" className="btn-primary" disabled={loading}>
           {loading ? "Logging in..." : "Login"}
         </button>
       </form>

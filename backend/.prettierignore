@@ -1,26 +1,21 @@
-# Node modules
-node_modules/
-
-# Build
-dist/
-build/
-
-# Env files
+ # Environment
 .env
-.env.*
+.env.test
+.env.production
+
+# Node dependencies
+node_modules/
+jspm_packages/
 
 # Logs
 logs/
 *.log
 
-# Git
-.git/
-
-# OS files
-.DS_Store
-
 # Coverage
 coverage/
+.nyc_output/
 
-# Any generated files
-*.min.js
+# Build outputs
+dist/
+.cache/
+.parcel-cache/
