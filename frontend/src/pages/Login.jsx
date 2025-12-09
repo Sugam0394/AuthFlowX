@@ -1,8 +1,10 @@
 import React ,  { useState } from "react"
 import {useDispatch, useSelector} from 'react-redux'
-import { loginUser } from "../api/authApi"
+ 
 import { useNavigate } from 'react-router-dom'
 import '../styles/Login.css'
+import { loginUser } from "../features/auth/authSlice"
+ 
  
 
 
@@ -23,14 +25,16 @@ function Login() {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+  e.preventDefault()
+  const resultAction = await dispatch(loginUser(formData))
 
-    const result = await dispatch(loginUser(formData));
+  if (loginUser.fulfilled.match(resultAction)) {
+    // Token is already set in axios interceptor
+    navigate("/dashboard") // dashboard opens now
+  }
+}
 
-    if (loginUser.fulfilled.match(result)) {
-      navigate("/dashboard"); // redirect after login
-    }
-  };
+
 
 
 

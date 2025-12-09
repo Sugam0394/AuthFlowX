@@ -3,6 +3,8 @@
  
  import api from '../../api/axios'
 
+ 
+
   
  
 
@@ -88,6 +90,7 @@ const authSlice = createSlice({
         state.loading = false;
         state.user = action.payload.user;
         state.accessToken = action.payload.accessToken;
+        
       })
       .addCase(loginUser.rejected, (state, action) => {
         state.loading = false;
