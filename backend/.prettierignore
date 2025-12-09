@@ -1,0 +1,26 @@
+# Node modules
+node_modules/
+
+# Build
+dist/
+build/
+
+# Env files
+.env
+.env.*
+
+# Logs
+logs/
+*.log
+
+# Git
+.git/
+
+# OS files
+.DS_Store
+
+# Coverage
+coverage/
+
+# Any generated files
+*.min.js
