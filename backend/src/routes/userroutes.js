@@ -1,5 +1,5 @@
  import { Router } from "express";
-import { registerUser }from "../controllers/usercontrollers.js";
+import { getCurrentUser, registerUser }from "../controllers/usercontrollers.js";
 import upload from "../middlewares/multer.js";
 import { loginUser } from "../controllers/usercontrollers.js";
 import verifyJWT from "../middlewares/auth.js";
@@ -24,6 +24,12 @@ registerUser
 router.route('/login').post(loginUser)
  router.route('/logout').post(verifyJWT , logout)
 router.route('/refreshToken').post(generateToken)
+
+// User Setting / Profile
+
+router.get("/me" , verifyJWT , getCurrentUser)
+
+
  
 
 

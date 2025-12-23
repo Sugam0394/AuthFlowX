@@ -5,16 +5,24 @@ import isAdmin from "../middlewares/isAdmin.js";
 import { getTool } from "../controllers/toolController.js";
 import { updateTool } from "../controllers/toolController.js";
 import { deleteTool } from "../controllers/toolController.js";
-import { getAllTool } from "../controllers/toolController.js";
-import { getToolByField } from "../controllers/toolController.js";
+ import { getToolById } from "../controllers/toolController.js";
+ 
 
 const toolRouter = Router();
 
-toolRouter.route('/createTool').post(verifyJWT ,isAdmin , createTool )
+
+ 
+
+// get single tool by id  // Public routes
 toolRouter.route('/getTool/:id').get(verifyJWT , getTool)
-toolRouter.route('/getAllTools').get(verifyJWT , getAllTool )
+// get all tools (Public)
+toolRouter.route('/getAllTools/:id').get(verifyJWT , getToolById)
+
+
+// admin Routes craete  update and delete Tools
+toolRouter.route('/createTool').post(verifyJWT , isAdmin , createTool )
 toolRouter.route('/updateTool/:id').patch(verifyJWT , isAdmin , updateTool )
 toolRouter.route('/deleteTool/:id').delete(verifyJWT , isAdmin , deleteTool )
-toolRouter.route('/').get(getToolByField)
+ 
 
 export default toolRouter

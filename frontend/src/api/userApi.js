@@ -1,16 +1,14 @@
 import api from "./axios";
 
-
-// Get logged in User
-export const fetchUserProfile = async () => {
-  const  { data } = await api.get('/user/profile')
-  return data
+export const getCurrentUser = async () => {
+    try {
+         const res = await api.get("/auth/me");
+    return res.data.user;
+    } catch (error) {
+         console.log("User Profile Error" , error)
+    }
 }
 
 
-// update Profile
-export const updateUserProfile = async (userData) => {
-  const { data } = await api.put('/user/profile', userData)
-  return data
-}
 
+ 

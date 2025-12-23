@@ -19,11 +19,23 @@
     type : String,
     required : [true , 'Tool url is required']
    },
-   field : {
+   targetAudience : {
     type : String,
     enum : ['students' , 'teacher'],
     required : true,
    },
+   logo: {
+    type: String,
+   },
+   pricing: {
+    type: String,
+    required: [true, 'Tool url is required']
+   },
+    status: {
+      type: String,
+      enum: ["pending", "approved", "live"],
+      default: "pending",
+    },
 
    createdBy : {
      type : mongoose.Schema.Types.ObjectId,

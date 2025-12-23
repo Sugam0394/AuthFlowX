@@ -16,20 +16,20 @@ app.use(cookieParser());
 
   
 import userRouter from './routes/userroutes.js';
-app.use('/auth', userRouter)
+app.use('/api/auth', userRouter)
 
 
 // admin routes declaration
  import adminRouter from './routes/adminroutes.js';
-app.use('/api/v1/admin' , adminRouter) 
+app.use('/api/admin' , adminRouter) 
 
 // CRUD TOOLS
 import toolRouter from './routes/toolRoutes.js';
-app.use('/api/v1/tools' , toolRouter )
+app.use('/api/tools' , toolRouter )
 
 // review routes 
 import reviewRouter from './routes/reviewroutes.js';
-app.use('/api/v1/reviews' , reviewRouter)
+app.use('/api/reviews' , reviewRouter)
 
 
 export default app

@@ -70,7 +70,7 @@ if(!name || !email || !password){
  }
 
  return res.status(201).json(
-   new ApiResponse(201 , createdUser , 'admin registered successfully')
+   new ApiResponse(201 ,{ user:  createdUser} ,'admin registered successfully')
  )
 
 })
@@ -84,11 +84,16 @@ const loginAdmin = asyncHandler(async(req , res) => {
   }
 
   // admin search
-  const admin = await User.findOne({email})
+  const admin = await User.findOne({email, role: "admin" })
 
-  if (!admin) {
-    throw new ApiError(404 , 'user does not exist')
+   if (!admin) {
+    throw new ApiError(401 , 'Invalid user credentials')
   }
+
+  if (admin.role !== "admin") {
+  return res.status(403).json({ message: "Not an admin" });
+}
+  
 
   // password validation
   const isPasswordValid = await admin.comparePassword(password)
@@ -97,7 +102,7 @@ const loginAdmin = asyncHandler(async(req , res) => {
     throw new ApiError(401 , 'Invalid user credentials')
   }
 
-  const {accessToken , refreshToken} = await generateToken(admin._id) 
+  const {accessToken , refreshToken} = await generateToken(admin._id, admin.role) 
 
   const loggedInUser = await User.findById(admin._id).select('-password -refreshToken')
  

@@ -1,0 +1,73 @@
+.dashboard-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 64px;
+  background: #0f172a; /* dark navy */
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  z-index: 1000;
+}
+
+.dashboard-logo {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.dashboard-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.dashboard-links a {
+  color: #e5e7eb;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.dashboard-links a:hover {
+  color: #38bdf8;
+}
+
+.dashboard-logout {
+  background: #ef4444;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.dashboard-logout:hover {
+  background: #dc2626;
+}
+
+/* Admin Login Button */
+.dashboard-admin {
+  background: #2563eb; /* blue tone for admin */
+  border: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+.dashboard-admin:hover {
+  background: #1d4ed8; /* darker blue on hover */
+}
+
+.dashboard-links {
+  display: flex;
+  align-items: center;
+  gap: 16px; /* thoda gap chhota ya bada */
+}
+
+

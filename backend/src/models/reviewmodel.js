@@ -21,6 +21,15 @@ comment : {
     type : String,
     trim : true,
 },
+ status: {
+      type: String,
+      enum: ["pending", "approved"],
+      default: "pending",
+    },
+      admin: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User", // admin who approves review (optional)
+    },
 
 
 

@@ -1,26 +1,34 @@
-import api from "./axios";
+ import api from "./axios";
+ 
 
 
 
-// Register new User
+export const registerUser = async (formData) => {
+  try {
+    const response = await api.post("/auth/register", formData);
+    return response.data;
+  } catch (error) {
+    throw error.response?.data?.message || "Registration failed";
+  }
+};
 
-export const registerUser = async(data) => {
-    const { data: resData}  = await api.post('/auth/register', data)
-    return resData
-}
-
-
-// Login User
-export const loginUser = async (data) => {
-    const {data: resData}  = await api.post('/auth/login' , data)
-    return resData
-}
-
-
-// Logout user
-export const logoutUser = async () => {
-  const {data: resData} = await api.post('/auth/logout')
-  return resData
-}
+// 🔐 Login API
+export const loginUser = async (formData) => {
+  try {
+    const response = await api.post("/auth/login", formData);
+    return response.data;
+  } catch (error) {
+    throw error.response?.data?.message || "Login failed";
+  }
+};
 
 
+ export const logoutUser = async () => {
+  try {
+    const response = await api.post("/auth/logout");
+    return response.data;
+  } catch (error) {
+    throw error?.response?.data?.message || error?.message || "Logout failed";
+  }
+};
+ 
