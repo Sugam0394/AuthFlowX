@@ -43,6 +43,15 @@ lastLogin: {
     type : Date
 },
 
+field: {
+  type: String,
+  default: null
+},
+
+
+
+
+
 } , {timestamps: true})
 
 
@@ -67,8 +76,8 @@ userSchema.methods.comparePassword = async function (password) {
 userSchema.methods.generateAccessToken = function(){
     return jwt.sign(
         {
-            id : this._id ,
-            role : this.role
+            _id : this._id ,
+            _role : this.role
         },
         process.env.ACCESS_TOKEN_SECRET ,
         {expiresIn : '15m'}
@@ -79,8 +88,8 @@ userSchema.methods.generateAccessToken = function(){
 // Refresh Token 
 userSchema.methods.generateRefreshToken = function(){
     return jwt.sign(
-        {id : this._id ,
-         role : this.role
+        {_id : this._id ,
+         _role : this.role
         },
         process.env.REFRESH_TOKEN_SECRET,
         {expiresIn : '7d'}
@@ -88,3 +97,5 @@ userSchema.methods.generateRefreshToken = function(){
 }
 
 export const User = mongoose.model('User' , userSchema)
+
+export default User;

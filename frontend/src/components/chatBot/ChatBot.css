@@ -1,0 +1,107 @@
+ /* Floating Toggle Button */
+.chatbot-toggle {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 56px;
+  height: 56px;
+  background: #3b82f6;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  cursor: pointer;
+  z-index: 999;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+/* Wrapper */
+.chatbot-wrapper {
+  position: fixed;
+  bottom: 90px;
+  right: 24px;
+  width: 320px;
+  height: 420px;
+  background: #0f172a;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  transform: scale(0);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.25s ease;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Open animation */
+.chatbot-wrapper.open {
+  transform: scale(1);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Header */
+.chat-header {
+  padding: 10px 14px;
+  background: #020617;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 16px 16px 0 0;
+}
+
+.chat-header button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.chat-container
+ { width: 100%; height: 100%; display: flex; flex-direction: column; background-color: #0f172a; }
+
+
+ .chat-messages { flex: 1; padding: 8px; overflow-y: auto; color: white; }
+
+
+.user-msg { text-align: right; margin: 4px 0; background-color: #3b82f6; padding: 6px 10px; border-radius: 8px; display: inline-block; }
+
+
+
+.ai-msg { text-align: left; margin: 4px 0; background-color: #334155; padding: 6px 10px; border-radius: 8px; display: inline-block; }
+
+
+
+.chat-input { display: flex; border-top: 1px solid #1e293b; }
+
+
+.chat-input input { flex: 1; padding: 6px; border: none; outline: none; font-size: 14px; background-color: #1e293b; color: white; }
+
+
+.chat-input button { padding: 6px 10px; background-color: #3b82f6; color: white; border: none; cursor: pointer; }
+
+
+/* Typing indicator style */ .ai-msg.typing { font-style: italic; opacity: 0.7; }
+
+
+/* Quick suggestion buttons */ .quick-buttons { display: flex; gap: 6px; padding: 4px 8px; flex-wrap: wrap; }
+
+
+.quick-buttons button { padding: 4px 8px; border-radius: 6px; background-color: #3b82f6; color: white; border: none; cursor: pointer; font-size: 12px; }
+
+.quick-buttons button:hover { background-color: #2563eb; }
+
+
+
+* Retry button */ .retry-btn { margin-left: 4px; padding: 4px 8px; background-color: #f97316; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 12px; }
+
+
+  
+ 
+
+
+

@@ -1,0 +1,75 @@
+ .tool-card {
+  position: relative;
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 20px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.tool-card:hover {
+  transform: translateY(-6px);
+}
+
+/* SAVE BUTTON */
+.save-btn {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  border: none;
+  background: #f1f5f9;
+  border-radius: 50%;
+  padding: 6px 8px;
+  cursor: pointer;
+  opacity: 0;
+  transition: all 0.2s ease;
+}
+
+.tool-card:hover .save-btn {
+  opacity: 1;
+}
+
+.save-btn.saved {
+  background: #fee2e2;
+}
+
+.tool-logo {
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+  margin-bottom: 12px;
+}
+
+.tool-name {
+  font-size: 18px;
+  font-weight: 600;
+  color: #0f172a;
+  margin-bottom: 6px;
+}
+
+.tool-tagline {
+  font-size: 14px;
+  color: #475569;
+  margin-bottom: 14px;
+}
+
+.tool-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tool-rating {
+  font-size: 14px;
+  color: #0f172a;
+}
+
+.tool-price {
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 12px;
+  background-color: #e0f2fe;
+  color: #0369a1;
+}
+

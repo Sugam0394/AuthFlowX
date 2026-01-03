@@ -134,12 +134,64 @@ try {
 })
 
 
+ const selectUserField = async (req, res) => {
+  try {
+    const { field } = req.body;
+    const userId = req.user.id; // protect middleware se aata hai
+
+    if (!field) {
+      return res.status(400).json({
+        success: false,
+        message: "Field is required",
+      });
+    }
+
+    const user = await User.findById(userId);
+
+    if (!user) {
+      return res.status(404).json({
+        success: false,
+        message: "User not found",
+      });
+    }
+
+    // ⚠️ optional: agar field already selected ho
+    if (user.field) {
+      return res.status(400).json({
+        success: false,
+        message: "Field already selected",
+      });
+    }
+
+    user.field = field;
+    await user.save();
+
+    return res.status(200).json({
+      success: true,
+      message: "Field selected successfully",
+      user,
+    });
+  } catch (error) {
+    console.error("Select field error:", error);
+    res.status(500).json({
+      success: false,
+      message: "Server error",
+    });
+  }
+};
+
+
+
+
+
+
  
  
 
 export {
  registerUser,
  loginUser , generateToken ,
- getCurrentUser
+ getCurrentUser,
+ selectUserField
  
  }

@@ -43,12 +43,23 @@ try {
  
   dispatch(setUser(user));
 
- // Role-based redirect
+ // Role-based redirect + field check
 if (user.role === "user") {
-  navigate("/dashboard");
+
+  // 🔴 FIRST TIME USER
+  if (!user.field) {
+    navigate("/select-field");
+  } 
+  
+  // 🟢 FIELD ALREADY SELECTED
+  else {
+    navigate("/dashboard");
+  }
+
 } else {
   navigate("/login");
 }
+
 
 } catch (err) {
   console.error(err);

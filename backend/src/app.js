@@ -25,11 +25,29 @@ app.use('/api/admin' , adminRouter)
 
 // CRUD TOOLS
 import toolRouter from './routes/toolRoutes.js';
-app.use('/api/tools' , toolRouter )
+app.use('/api' , toolRouter )
 
 // review routes 
 import reviewRouter from './routes/reviewroutes.js';
-app.use('/api/reviews' , reviewRouter)
+app.use('/api' , reviewRouter)
+
+
+
+// category 
+import categoryRoutes from './routes/categoryRoutes.js'
+
+ 
+
+app.use("/api/category", categoryRoutes);
+
+
+// Chat router
+import chaiRouter from './routes/chatRoutes.js';
+
+app.use("/api" , chaiRouter)
+
+
+ 
 
 
 export default app

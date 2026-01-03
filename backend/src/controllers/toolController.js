@@ -1,6 +1,7 @@
 import asyncHandler from "../utils/asyncHandler.js";
 import ApiError from "../utils/apiError.js";
 import {Tool} from '../models/toolmodel.js'
+import Category from "../models/categoryModel.js";
  
 
 
@@ -63,15 +64,6 @@ const createTool = asyncHandler(async(req , res) => {
    
 })
 
-
-
-
-
-
-
-
-
-
 //  get all tools (Public)
 const getTool = asyncHandler(async(req , res ) => {
   try {
@@ -97,19 +89,6 @@ const getTool = asyncHandler(async(req , res ) => {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 // get single tool by id
 const getToolById = asyncHandler(async(req , res) => {
     
@@ -124,26 +103,6 @@ const getToolById = asyncHandler(async(req , res) => {
 
     })
     
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // update tool by ID
 const updateTool = asyncHandler(async(req , res) => {
@@ -165,67 +124,233 @@ const updateTool = asyncHandler(async(req , res) => {
 })
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// delete Tool
-const deleteTool = asyncHandler(async(req , res , next) => {
-   try {
+ const deleteTool = asyncHandler(async (req, res) => {
+  try {
     const tool = await Tool.findById(req.params.id);
-    if (!tool) throw new Error("Tool not found");
+    if (!tool) {
+      return res.status(404).json({
+        success: false,
+        message: "Tool not found",
+      });
+    }
 
-    await tool.remove();
-    res.status(200).json({ success: true, message: "Tool deleted successfully" });
+    await Tool.findByIdAndDelete(req.params.id);
+
+    res.status(200).json({
+      success: true,
+      message: "Tool deleted successfully",
+    });
+  } catch (error) {
+    res.status(400).json({
+      success: false,
+      message: error.message,
+    });
+  }
+});
+
+
+
+
+
+ const getAllToolsAdmin = asyncHandler(async (req, res) => {
+  try {
+    const page = Number(req.query.page) || 1;
+    const limit = Number(req.query.limit) || 20;
+    const skip = (page - 1) * limit;
+
+    const totalTools = await Tool.countDocuments();
+    const tools = await Tool.find()
+      .skip(skip)
+      .limit(limit)
+      .populate("reviews");
+
+      console.log("ADMIN TOOLS COUNT:", tools.length);
+
+
+    res.status(200).json({
+      tools,
+      page,
+      totalPages: Math.ceil(totalTools / limit),
+      totalTools,
+    });
   } catch (error) {
     res.status(400).json({ success: false, message: error.message });
   }
-})
+});
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+const approveTool = asyncHandler(async (req, res) => {
  
+  try {
+    const tool = await Tool.findByIdAndUpdate(
+      req.params.id,
+      { status: "live" },
+      { new: true }
+    );
+    res.json({ success: true, tool });
+  } catch (error) {
+    res.status(400).json({ success: false, message: error.message });
+  }
+});
+
+const rejectTool = asyncHandler(async (req, res) => {
+
+  try {
+    const tool = await Tool.findByIdAndUpdate(
+      req.params.id,
+      { status: "rejected" },
+      { new: true }
+    );
+    res.json({ success: true, tool });
+  } catch (error) {
+    res.status(400).json({ success: false, message: error.message });
+  }
+});
+
+
+
+// Get popular tools
+
+ export const getPopularTools = async (req, res) => {
+  try {
+    const tools = await Tool.find({
+      isPopular: true,
+      
+    })
+      .select("name image url")
+      .limit(6)
+      .sort({ createdAt: -1 });
+
+    res.status(200).json({
+      success: true,
+      tools,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: "Failed to load popular tools",
+    });
+  }
+};
+
+
+// GET featured tools
+ export const getFeaturedTools = async (req, res) => {
+  try {
+    const today = new Date();
+
+    const tools = await Tool.find({
+      isFeatured: true,
+      $or: [
+        { featuredUntil: { $gte: today } },
+        { featuredUntil: { $exists: false } },
+      ],
+    })
+      .select("name image url")
+      .limit(5)
+      .sort({ createdAt: -1 });
+
+    res.status(200).json({
+      success: true,
+      tools,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: "Failed to load featured tools",
+    });
+  }
+};
+
+
+// GET categories
+ export const getCategories = async (req, res) => {
+  try {
+    const categories = await Category.find();
+    res.json(categories);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
+
+
+export const getHomeTools = async (req, res) => {
+  try {
+    const tools = await Tool.find({ status: "live" })
+      .select("name image url")
+      .limit(12)
+      .sort({ createdAt: -1 });
+
+    res.status(200).json({
+      success: true,
+      tools,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: "Failed to load home tools",
+    });
+  }
+};
+
+
+
+ const getRecommendedTools = async (req, res) => {
+  try {
+    const field = req.query.field?.toLowerCase();
+
+    if (!field) {
+      return res.status(400).json({ message: "Field is required" });
+    }
+
+    const tools = await Tool.find({
+      category: new RegExp(field, "i"),
+      status: "pending", // later change to approved
+    })
+      .sort({ createdAt: -1 })
+      .limit(6);
+
+    res.status(200).json(tools);
+  } catch (err) {
+    res.status(500).json({ message: "Server error" });
+  }
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 export  {
 
- createTool , getTool ,  getToolById , updateTool , deleteTool  
+ createTool , getTool ,  getToolById , updateTool , deleteTool  , getAllToolsAdmin ,
+ approveTool,
+ rejectTool,
+ getRecommendedTools
+ 
+ 
 
 }

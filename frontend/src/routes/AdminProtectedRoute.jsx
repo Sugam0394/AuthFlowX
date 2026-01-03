@@ -6,7 +6,7 @@ import { getAccessToken } from '../utils/auth';
  
 
 
-function AdminProtectedRoute( { children}) {
+function AdminProtectedRoute( ) {
    const token = getAccessToken();
  
 
@@ -17,7 +17,7 @@ function AdminProtectedRoute( { children}) {
 
  
   
-  return   children
+  return    <Outlet />
 }
 
 export default AdminProtectedRoute

@@ -1,0 +1,127 @@
+ .tool-details-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 25px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  font-family: "Segoe UI", sans-serif;
+}
+
+.tool-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.tool-name {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.tool-status {
+  padding: 5px 12px;
+  border-radius: 8px;
+  font-weight: 600;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+}
+
+.badge-live {
+  background-color: #28a745;
+}
+
+.badge-inactive {
+  background-color: #dc3545;
+}
+
+.tool-info p {
+  margin: 10px 0;
+  font-size: 1rem;
+  color: #555;
+}
+
+.tool-actions {
+  margin: 20px 0;
+  display: flex;
+  gap: 15px;
+}
+
+.visit-button {
+  display: inline-block;
+  padding: 12px 25px;
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.visit-button:hover {
+  background-color: #0056b3;
+}
+
+.copy-url-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.copy-url-button:hover {
+  background-color: #1e7e34;
+}
+
+.tool-reviews {
+  margin-top: 30px;
+}
+
+.tool-reviews h3 {
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+ 
+
+ 
+
+ 
+
+.loading,
+.error,
+.not-found {
+  text-align: center;
+  font-size: 1.2rem;
+  margin-top: 40px;
+}
+
+.error {
+  color: #dc3545;
+}
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+
+
+
+

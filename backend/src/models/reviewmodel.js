@@ -23,12 +23,13 @@ comment : {
 },
  status: {
       type: String,
-      enum: ["pending", "approved"],
+      enum: ["pending", "approved", "rejected"],
       default: "pending",
     },
       admin: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "User", // admin who approves review (optional)
+      ref: "User",
+      default: null, // admin who approves review (optional)
     },
 
 
@@ -38,3 +39,5 @@ comment : {
 reviewSchema.index({user : 1, tool : 1 }, {unique : true})
 
 export const Review = mongoose.model('Review' , reviewSchema)
+
+export default Review;

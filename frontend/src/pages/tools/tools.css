@@ -1,0 +1,180 @@
+ .tools-container {
+  padding: 32px;
+  background-color: #f3f4f6;
+  min-height: 100vh;
+  font-family: 'Inter', sans-serif;
+}
+
+.tools-container h1 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 24px;
+}
+
+.tools-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+  font-size: 14px;
+}
+
+.tools-table th,
+.tools-table td {
+  padding: 14px 18px;
+  text-align: left;
+}
+
+.tools-table th {
+  background-color: #f9fafb;
+  font-weight: 600;
+  color: #374151;
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+}
+
+.tools-table tr:nth-child(even) {
+  background-color: #fefefe;
+}
+
+.tools-table tr:hover {
+  background-color: #f3f4f6;
+}
+
+.tools-table button {
+  padding: 6px 14px;
+  margin-right: 6px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  font-size: 13px;
+}
+
+.tools-table button:hover {
+  transform: scale(1.05);
+}
+
+.tools-table button.approve {
+  background-color: #22c55e;
+  color: #ffffff;
+}
+
+.tools-table button.reject {
+  background-color: #f87171;
+  color: #ffffff;
+}
+
+.tools-table button.delete {
+  background-color: #ef4444;
+  color: #ffffff;
+}
+
+/* DELETE CONFIRM MODAL */
+.delete-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #ffffff;
+  padding: 28px 32px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  z-index: 1000;
+  width: 320px;
+  text-align: center;
+}
+
+.delete-modal p {
+  margin-bottom: 20px;
+  font-weight: 500;
+  color: #111827;
+}
+
+.delete-modal button {
+  padding: 8px 18px;
+  border-radius: 6px;
+  font-weight: 500;
+  margin: 0 8px;
+}
+
+.delete-modal button.confirm {
+  background-color: #ef4444;
+  color: #ffffff;
+}
+
+.delete-modal button.cancel {
+  background-color: #9ca3af;
+  color: #ffffff;
+}
+
+.delete-modal button:hover {
+  opacity: 0.9;
+}
+
+
+.pagination {
+  margin-top: 20px;
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+}
+
+.pagination button {
+  padding: 6px 12px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+}
+
+.pagination button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.pagination span {
+  font-weight: 500;
+  color: #374151;
+}
+
+.tools-filters {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.tools-filters input {
+  padding: 8px 12px;
+  min-width: 220px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+  outline: none;
+}
+
+.tools-filters input:focus {
+  border-color: #2563eb;
+}
+
+.tools-filters select {
+  padding: 8px 12px;
+  min-width: 160px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.tools-filters select:focus {
+  border-color: #2563eb;
+}
+

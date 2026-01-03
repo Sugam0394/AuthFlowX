@@ -1,7 +1,10 @@
 import asyncHandler from "../utils/asyncHandler.js";
 import ApiError from "../utils/apiError.js";
 import ApiResponse from "../utils/apiResponse.js";
-import { User } from "../models/usermodels.js";
+ 
+import Tool from "../models/toolmodel.js";
+import User from "../models/usermodels.js";
+import Review from "../models/reviewmodel.js";
  
 import uploadCloudinary from "../utils/cloudinary.js";
 
@@ -119,7 +122,31 @@ const loginAdmin = asyncHandler(async(req , res) => {
 
 })
 
+
+const getAdminDashboardStats = async (req , res) => {
+  try {
+    const totalTools = await Tool.countDocuments();
+    const totalReviews = await Review.countDocuments();
+    const totalUsers = await User.countDocuments({ role: "user"});
+
+    res.status(200).json({
+      success: true,
+      stats: {
+        totalTools,
+        totalReviews,
+        totalUsers: await User.countDocuments({ role: "user" }),
+      },
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: error.message,
+    });
+  }
+}
+
  
 
 export  {
-  registerAdmin , loginAdmin , generateToken}
+  registerAdmin , loginAdmin , getAdminDashboardStats,
+  generateToken}

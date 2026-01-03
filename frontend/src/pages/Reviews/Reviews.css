@@ -1,0 +1,116 @@
+ /* Page Wrapper */
+.admin-page {
+  padding: 20px;
+  background: #f9fafb;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+/* Heading */
+.admin-page h2 {
+  margin-bottom: 20px;
+  color: #1f2937;
+}
+
+/* Filter Dropdown */
+.admin-page select {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  outline: none;
+  font-size: 14px;
+  background: white;
+}
+
+/* Table */
+.admin-page table {
+  border-collapse: collapse;
+  background: white;
+  margin-top: 15px;
+}
+
+.admin-page th {
+  background: #f3f4f6;
+  text-align: left;
+  font-weight: 600;
+  color: #374151;
+}
+
+.admin-page th,
+.admin-page td {
+  padding: 12px;
+  border: 1px solid #e5e7eb;
+  font-size: 14px;
+}
+
+/* Status Badge */
+.status-badge {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+/* Status Colors */
+.status-pending {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.status-approved {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.status-rejected {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+/* Buttons Base */
+.admin-page button {
+  border: none;
+  padding: 6px 12px;
+  border-radius: 5px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* Approve Button */
+.btn-approve {
+  background: #10b981;
+  color: white;
+}
+
+.btn-approve:hover {
+  background: #059669;
+}
+
+/* Reject Button */
+.btn-reject {
+  background: #f59e0b;
+  color: white;
+}
+
+.btn-rejet:hover {
+  background: #d97706;
+}
+
+/* Delete Button */
+.btn-delete {
+  background: #ef4444;
+  color: white;
+}
+
+.btn-delete:hover {
+  background: #dc2626;
+}
+
+/* Loading / Error Text */
+.admin-page p {
+  margin-top: 10px;
+  font-size: 14px;
+}
+

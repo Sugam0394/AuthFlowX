@@ -1,0 +1,24 @@
+ .tool-card {
+  display: block;
+  width: 100%;
+  height: 220px;
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.tool-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.tool-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+ 
+
+

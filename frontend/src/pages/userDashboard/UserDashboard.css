@@ -1,0 +1,56 @@
+ :root {
+  --white-main: #f8fafc;
+  --white-soft: #e5e7eb;
+  --black-soft: #020617;
+  --blue-dark: hwb(222 6% 84%);
+  --muted-text: #ffffff;
+  --accent-blue: #38bdf8;
+  --border-light: #e2e8f0;
+}
+
+/* PAGE BACKGROUND */
+.dashboard-page {
+  background: var( --white-main);
+  min-height: 100vh;
+  padding: 80px 40px 40px;
+}
+
+/* SECTIONS (70% white dominance) */
+section {
+  background-color: hwb(222 6% 84%);
+  border-radius: 18px;
+  padding: 28px;
+  margin-bottom: 40px;
+  border: 1px solid var(--border-light);
+}
+
+/* SECTION HEADINGS */
+section h2 {
+  font-size: 22px;
+  font-weight: 600;
+ color: #ffffff;
+  margin-bottom: 20px;
+}
+
+/* TEXT */
+section p {
+  color: #ffffff;
+}
+
+/* GRID */
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 24px;
+}
+
+/* CTA */
+.explore-all a {
+  color: var(--blue-dark);
+  font-weight: 500;
+}
+
+ h1{
+    color: #ffffff;
+ }
+

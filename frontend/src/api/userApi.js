@@ -10,5 +10,10 @@ export const getCurrentUser = async () => {
 }
 
 
+export const selectUserField = (field) => {
+     return api.post('/auth/select-field' , { field })
+}
+ 
+
 
  

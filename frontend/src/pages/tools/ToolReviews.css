@@ -1,0 +1,129 @@
+.tool-reviews-container {
+  margin-top: 40px;
+  padding: 24px;
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+}
+
+/* =====================
+   Review Form
+===================== */
+
+.review-form {
+  margin-bottom: 32px;
+}
+
+.review-form h3 {
+  font-size: 1.4rem;
+  margin-bottom: 12px;
+  color: #1f2937;
+}
+
+.review-form textarea {
+  width: 100%;
+  min-height: 110px;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  resize: vertical;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border 0.2s ease;
+}
+
+.review-form textarea:focus {
+  border-color: #2563eb;
+}
+
+/* =====================
+   Star Rating Input
+===================== */
+
+.star-rating-input {
+  margin: 12px 0 18px;
+}
+
+.star {
+  font-size: 1.6rem;
+  color: #d1d5db;
+  cursor: pointer;
+  margin-right: 4px;
+  transition: transform 0.15s ease, color 0.15s ease;
+}
+
+.star:hover {
+  transform: scale(1.15);
+}
+
+.star.filled {
+  color: #facc15;
+}
+
+/* =====================
+   Submit Button
+===================== */
+
+.review-form button {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.review-form button:hover {
+  background: #1e40af;
+  transform: translateY(-1px);
+}
+
+.review-form button:disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* =====================
+   Reviews List
+===================== */
+
+.reviews-list h3 {
+  font-size: 1.3rem;
+  margin-bottom: 14px;
+  color: #111827;
+}
+
+.reviews-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.review-item {
+  padding: 16px;
+  border-radius: 12px;
+  background: #f9fafb;
+  margin-bottom: 14px;
+  border-left: 4px solid #2563eb;
+  transition: box-shadow 0.2s ease, transform 0.1s ease;
+}
+
+.review-item:hover {
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+
+.review-text {
+  font-size: 0.95rem;
+  color: #374151;
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
+.review-rating .star {
+  font-size: 1.3rem;
+  cursor: default;
+}

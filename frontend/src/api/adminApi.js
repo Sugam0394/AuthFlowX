@@ -20,3 +20,12 @@ export const logoutAdmin = async () => {
   }
 };
 
+export const fetchAdminStats = async () => {
+  try {
+    const response = await api.get("/admin/stats");
+    return response.data;
+  } catch (error) {
+    throw error?.response?.data?.message || "Fetching admin stats failed";
+}
+};
+

@@ -15,13 +15,13 @@
     trim : true,
     
    },
-   url : {
-    type : String,
-    required : [true , 'Tool url is required']
+  url : {
+   type : String,
+ required : [true , 'Tool url is required'] // making optional for testing
    },
    targetAudience : {
     type : String,
-    enum : ['students' , 'teacher'],
+   
     required : true,
    },
    logo: {
@@ -29,13 +29,41 @@
    },
    pricing: {
     type: String,
-    required: [true, 'Tool url is required']
+   
    },
     status: {
       type: String,
       enum: ["pending", "approved", "live"],
       default: "pending",
     },
+
+    field: String,
+
+     image: {
+   type: String,
+    required: true,
+    default: "https://yourdomain.com/default-tool.png", 
+},
+
+
+     shortDescription:
+      { type: String, 
+        trim: true
+
+       },
+
+         // 💎 NEW FIELDS for Home Dashboard
+   isPopular:
+    { type: Boolean,
+       default: false },
+
+   isFeatured: 
+   { type: Boolean, 
+    default: false },
+
+   featuredUntil:
+    { type: Date },
+
 
    createdBy : {
      type : mongoose.Schema.Types.ObjectId,
@@ -55,4 +83,7 @@
     timestamps : true
 })
 
- export const Tool = mongoose.model('Tool' , toolSchema)
+export  const Tool = mongoose.model('Tool' , toolSchema)
+
+export default Tool
+ 

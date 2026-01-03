@@ -1,10 +1,11 @@
  import { Router } from "express";
-import { getCurrentUser, registerUser }from "../controllers/usercontrollers.js";
+import { getCurrentUser, registerUser, selectUserField }from "../controllers/usercontrollers.js";
 import upload from "../middlewares/multer.js";
 import { loginUser } from "../controllers/usercontrollers.js";
 import verifyJWT from "../middlewares/auth.js";
  import logout from "../controllers/logout.js";
 import generateToken from "../middlewares/generateToken.js";
+
  
  
  
@@ -28,6 +29,8 @@ router.route('/refreshToken').post(generateToken)
 // User Setting / Profile
 
 router.get("/me" , verifyJWT , getCurrentUser)
+
+router.post("/select-field" , verifyJWT , selectUserField)
 
 
  

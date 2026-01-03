@@ -1,73 +1,108 @@
-.dashboard-nav {
+ .dashboard-nav {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 64px;
-  background: #0f172a; /* dark navy */
+
+  background: rgba(15, 23, 42, 0.85); /* glass effect */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
   color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 24px;
+
+  padding: 0 32px;
   z-index: 1000;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
+/* LOGO */
 .dashboard-logo {
   font-size: 20px;
   font-weight: 700;
+  letter-spacing: 0.3px;
+  color: #ffffff;
+  cursor: pointer;
 }
 
+/* LINKS WRAPPER */
 .dashboard-links {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 18px;
 }
 
+/* LINKS */
 .dashboard-links a {
+  position: relative;
   color: #e5e7eb;
   text-decoration: none;
   font-weight: 500;
+  font-size: 14px;
+  transition: color 0.2s ease;
 }
 
 .dashboard-links a:hover {
   color: #38bdf8;
 }
 
+/* underline animation */
+.dashboard-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0%;
+  height: 2px;
+  background: #38bdf8;
+  transition: width 0.25s ease;
+  border-radius: 2px;
+}
+
+.dashboard-links a:hover::after {
+  width: 100%;
+}
+
+/* LOGOUT BUTTON */
 .dashboard-logout {
-  background: #ef4444;
-  border: none;
+  background: rgba(239, 68, 68, 0.15);
+  border: 1px solid rgba(239, 68, 68, 0.4);
   padding: 6px 14px;
-  border-radius: 6px;
+  border-radius: 8px;
   color: #fff;
   cursor: pointer;
   font-weight: 500;
+  font-size: 13px;
+
+  transition: all 0.25s ease;
 }
 
 .dashboard-logout:hover {
-  background: #dc2626;
+  background: #ef4444;
+  transform: translateY(-1px);
 }
 
-/* Admin Login Button */
+/* ADMIN BUTTON (optional) */
 .dashboard-admin {
-  background: #2563eb; /* blue tone for admin */
-  border: none;
+  background: rgba(37, 99, 235, 0.15);
+  border: 1px solid rgba(37, 99, 235, 0.4);
   padding: 6px 14px;
-  border-radius: 6px;
+  border-radius: 8px;
   color: #fff;
   cursor: pointer;
   font-weight: 500;
-  transition: background 0.3s ease;
+  font-size: 13px;
+
+  transition: all 0.25s ease;
 }
 
 .dashboard-admin:hover {
-  background: #1d4ed8; /* darker blue on hover */
+  background: #2563eb;
+  transform: translateY(-1px);
 }
 
-.dashboard-links {
-  display: flex;
-  align-items: center;
-  gap: 16px; /* thoda gap chhota ya bada */
-}
 
 
